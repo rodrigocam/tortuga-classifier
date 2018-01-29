@@ -1,5 +1,3 @@
-import numpy as np
-
 
 def distance(s, t):
         if s == t: return 0
@@ -18,9 +16,3 @@ def distance(s, t):
                 v0[j] = v1[j]
                 
         return v1[len(t)]
-
-
-if __name__ == '__main__':
-    trgt = input()
-    src = input()
-    print(distance(trgt, src))
