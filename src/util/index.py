@@ -1,4 +1,10 @@
-
+"""
+    This module creates an index to reduce the complexity of
+    comparison betweem words in two big lists.
+    If we have a word that starts with "a" we don't need to look
+    all others words that not starts with this letter because is
+    unlikely that this two words are similar enough to our comparison.
+"""
 
 index ={'a':[], 'b':[], 'c':[], 'd':[], 'e':[],
         'f':[], 'g':[], 'h':[], 'i':[], 'j':[],
@@ -10,13 +16,6 @@ index ={'a':[], 'b':[], 'c':[], 'd':[], 'e':[],
         '4':[], '5':[], '6':[], '7':[], '8':[],
         '9':[]}
 
-"""
-    This function creates an index to reduce the complexity of
-    comparison betweem words in two big lists.
-    If we have a word that starts with "a" we don't need to look
-    all others words that not starts with this letter because is
-    unlikely that this two words are very similar.
-"""
 def create_index(word_list):
     for element in word_list:
         text = element[1].text

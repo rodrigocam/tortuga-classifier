@@ -1,0 +1,2 @@
+measure_units:
+  - '[0-9]+(\.[0-9]+)?\s*(kg|g|mg|l|ml)'

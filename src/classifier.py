@@ -1,9 +1,10 @@
 import xml.etree.cElementTree as ET
-from similarity import compare
-from util import create_index
+from util.similarity import compare, compare_measures
+from util.index import create_index
 from multiprocessing import Pool
 import csv
 import time
+
 
 XML_1 = '../dataset/mambo.xml'
 XML_2 = '../dataset/paodeacucar.xml'
@@ -32,10 +33,11 @@ def classify(data):
                     lower = dist
             it += 1
 
-        if lower is not None and lower[0] < 1.5:
-            print('Product Equal')
-            index[start_with].remove(lower[1])
-            ofile.write("{0},{1},{2}\n".format(text, lower[1], lower[0]))
+        if lower and lower[0] < 1.5:
+            if compare_measures(text, lower[1]):
+                print('Product Equal')
+                index[start_with].remove(lower[1])
+                ofile.write("{0},{1},{2}\n".format(text, lower[1], lower[0]))
 
 
 if __name__ == "__main__":
@@ -45,3 +47,4 @@ if __name__ == "__main__":
     p.map(classify, first_root)
     ofile.close()
     print(time.time()-start_time)
+

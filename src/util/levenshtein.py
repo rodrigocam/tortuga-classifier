@@ -1,4 +1,8 @@
-
+"""
+    This module calculates de distance of levenshtein
+    iteratively based on this wikipedia article
+    https://en.wikipedia.org/wiki/Levenshtein_distance
+"""
 def distance(s, t):
         if s == t: return 0
         elif len(s) == 0: return len(t)
