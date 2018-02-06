@@ -23,6 +23,7 @@ def classify(data):
         it = 0
         start_with = data[0].text[0].lower()
         text = data[0].text.lower()
+        print(text)        
         lower = None
         for text_cmp in index[start_with]:
             if it == 0:

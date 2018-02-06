@@ -10,10 +10,11 @@ import re
 """
 
 def get_measure(product, pattern):
-    start, end = pattern.search(product).span()
-    if start and end:
-        measure = product[start:end]
-        return measure
+    if pattern.search(product):
+        start, end = pattern.search(product).span()
+        if start and end:
+            measure = product[start:end]
+            return measure
     return None
 
 
@@ -63,3 +64,4 @@ def compare(string_1, string_2):
 
     sim_value =  min_value * min_weight + max_value * max_weight 
     return sim_value
+    
